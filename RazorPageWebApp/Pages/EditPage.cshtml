@@ -1,0 +1,14 @@
+﻿@page
+@model RazorPageWebApp.Pages.EditPageModel
+@{
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Product.ProductId" />
+    <label asp-for="Product.ProductName"></label>
+    <input class="form-control" asp-for="Product.ProductName" /> <br />
+    <label asp-for="Product.Price"></label>
+    <input class="form-control" asp-for="Product.Price" /> <br />
+    <input type="submit" class="btn btn-success" value="Save" />
+</form>
+

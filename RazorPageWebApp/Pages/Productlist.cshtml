@@ -1,0 +1,37 @@
+﻿@page
+@model RazorPageWebApp.Pages.ProductlistModel
+@{
+}
+
+<h1> Product Data </h1>
+<hr />
+<form method="post">
+    <b> Enter Product Name :- </b> &nbsp;
+    <input type="search" name="productName" /> &nbsp; &nbsp;
+    <input type="submit" value="Search Product" />
+</form>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th> Product Name </th>
+            <th> Product Price </th>
+            <th>Product Details</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Products)
+        {
+            <tr>
+                <td>@p.ProductId</td>
+                <td>@p.ProductName</td>
+                <td>@p.Price</td>
+                <td> <a asp-page="./PDetails" asp-route-productId="@p.ProductId"> Details </a> </td>
+                <td> <a asp-page="./EditPage" asp-route-productId="@p.ProductId"> Edit </a> </td>
+                <td> <a asp-page="./Delete" asp-route-productId="@p.ProductId"> Delete </a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
